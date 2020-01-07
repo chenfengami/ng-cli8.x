@@ -72,6 +72,15 @@
           "configurations": {
             "production": {
               "browserTarget": "ng-cli:build:production"
+            },
+            "develop": {
+              "proxyConfig": "src/proxy/proxy.conf.dev.json"
+            },
+            "test": {
+              "proxyConfig": "src/proxy/proxy.conf.test.json"
+            },
+            "online": {
+              "proxyConfig": "src/proxy/proxy.conf.online.json"
             }
           }
         },
