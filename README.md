@@ -1,32 +1,32 @@
-# 官方ng-cli解决不同环境，接口地址对应不同域名、端口的解决方法
-## angular.json进行配置
+## 官方ng-cli解决不同环境，接口地址对应不同域名、端口的解决方法
+### angular.json进行配置
 ``` javascript
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ng-cli:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ng-cli:build:production"
-            },
-              // 开发环境
-            "develop": {
-              "proxyConfig": "src/proxy/proxy.conf.dev.json"
-            },
-              // 测试环境
-            "test": {
-              "proxyConfig": "src/proxy/proxy.conf.test.json"
-            },
-              // 线上环境
-            "online": {
-              "proxyConfig": "src/proxy/proxy.conf.online.json"
-            }
-          }
-        },
+"serve": {
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "browserTarget": "ng-cli:build"
+  },
+  "configurations": {
+    "production": {
+      "browserTarget": "ng-cli:build:production"
+    },
+      // 开发环境
+    "develop": {
+      "proxyConfig": "src/proxy/proxy.conf.dev.json"
+    },
+      // 测试环境
+    "test": {
+      "proxyConfig": "src/proxy/proxy.conf.test.json"
+    },
+      // 线上环境
+    "online": {
+      "proxyConfig": "src/proxy/proxy.conf.online.json"
+    }
+  }
+},
 ```
 
-## proxy 代理
+### proxy 代理
 
 ```javascript
 // develop environment
@@ -49,7 +49,7 @@
 }
 ```
 
-## service
+### service
 
 ```typescript
 // component.ts
@@ -100,11 +100,11 @@ export class AppService {
 
 ```
 
-# 非官方ng-cli配置
+## 非官方ng-cli配置
 
  
 
-## process.env.SERVER_ENV
+### process.env.SERVER_ENV
 
 ```javascript
   yarn add cross-env -D // 解决windows、macOs下的环境兼容问题
@@ -137,10 +137,7 @@ export class AppService {
       "start:develop": "cross-env SERVER_ENV=develop npm run server",
     	"start:test": "cross-env SERVER_ENV=test npm run server",
       "start:online": "cross-env SERVER_ENV=online npm run server"
-      "server": "webpack-dev-server --config webpack.dec.config.js",
+      "server": "webpack-dev-server --config webpack.dev.config.js",
     }
   }
 ```
-
-...weiwandaixu
-
