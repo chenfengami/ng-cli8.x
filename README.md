@@ -49,6 +49,16 @@
 }
 ```
 
+## start
+
+```javascript
+npm run start // 默认开发环境
+npm run start:develop //开发环境
+...	         :test // 测试环境
+...          :online // 线上环境
+
+```
+
 ### service
 
 ```typescript
@@ -135,7 +145,7 @@ export class AppService {
   {
     "scripts": {
       "start:develop": "cross-env SERVER_ENV=develop npm run server",
-    	"start:test": "cross-env SERVER_ENV=test npm run server",
+      "start:test": "cross-env SERVER_ENV=test npm run server",
       "start:online": "cross-env SERVER_ENV=online npm run server"
       "server": "webpack-dev-server --config webpack.dev.config.js",
     }
