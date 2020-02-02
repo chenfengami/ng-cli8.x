@@ -12,4 +12,13 @@ export class AppService {
   getUsers(): Observable<any> {
     return this.http.get('/api/users');
   }
+
+  getNames(): Observable<any> {
+    return this.http.post('/api/names', { male: 0 });
+  }
+
+  getErrorRequest():Observable<any> {
+    return this.http.post('/api/ss', {});
+  }
+
 }
